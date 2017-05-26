@@ -1,0 +1,68 @@
+<html>
+<head>
+<script type="text/javascript" src = "jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src = "jsrender.min.js"></script>
+<head>
+<body>
+
+<form id = "form1" runat = "server">
+	
+	<div>
+		<div id = "container" style = "display : inline-block ">
+			
+		</div>
+	</div>
+	
+	<script id = "template" type = "text/x-jsrender">
+	
+	{{for #data}}
+	{{if id > 0}}
+	<div style = "float : left; background-color : #e3d8ca; margin-left : 50px; margin-top : 30px; box-shadow: 10px 10px 5px #888888; border-radius : 12%">
+	<img src = "{{>image}}" alt = "Image not found" style="width:100px;height:150px;  margin-top : 10px; margin-left : 10px; margin-bottom: 10px;"/>
+	<ul style = " float : right; margin-right : 8px; margin-top : 30px;"> <li> id :{{>id}} </li><li> name : {{>name}} </li><li> age: {{>age}}</li>
+	 </ul>
+	 </div>
+	 {{/if}}
+	{{/for}}
+	</script>
+	
+	<script>
+	var data = [
+	{
+	"id" : "1",
+	"name" : "Bruce Wayne",
+	"age" : "40",
+	"image" : "images.jpg"
+	},
+	{
+	"id" : "2" ,
+	"name" : "Edward Snowden",
+	"age" : "30",
+	"image" : "snowden.jpg"
+	},
+	{
+	"id" : "3",
+	"name" : "Peter Parker",
+	"age" : "35",
+	"image" : "peter.jpg"
+	},
+	{
+	"id" : 4,
+	"name" : "Mark Zuckerberg",
+	"age" : "32",
+	"image" : "download.jpg"
+	},
+	{
+	"id" : 5,
+	"name" : "Steve Jobs",
+	"age" : "deceased",
+	"image" : "sjobs.jpg"
+	}
+	];
+	
+	$('#container').html($('#template').render(data));
+	</script>
+	
+</form>
+</body>
+</html>
